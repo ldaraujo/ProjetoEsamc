@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- Start head -->
+
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<!-- Start header -->
+<header class="top-navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host"
+                aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbars-host">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">Sobre</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Estudante
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                            <a class="dropdown-item" href="/estudante/turma">Turma </a>
+                            <a class="dropdown-item" href="/estudante/cadastrar">Cadastrar </a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Professor
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                            <a class="dropdown-item" href="/professor/lista">Lista </a>
+                            <a class="dropdown-item" href="/professor/cadastrar">Cadastrar </a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Start body -->
+
+<body>
+
+    <section class="container">
+        <form method="POST" id="form">
+            <div class="form-group">
+                <div class="center form-row" id="esp-form">
+                    <label for="inputNome"> Nome: </label>
+                    <input type="text" class="form-control  is-valid" id="validationServer01"
+                        placeholder="Insira Nome Completo" name="nome" value="<%=cadastro.nome %>" required />
+                </div>
+                <div class="row" id="esp-form">
+                    <div class="col">
+                        Curso:
+                        <select class="form-control is-valid" name="curso" id="curso" style="width: 150px" required>
+                            <option value="">Selecione</option>
+                            <option value="Engenharia">Engenharia</option>
+                            <option value="Computação">Computação</option>
+                            <option value="Direito">Direito</option>
+                            <option value="Pedagogia">Pedagogia</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        Nacionalidade: <select class="form-control is-valid" name="nacionalidade" id="nacionalidade"
+                            style="width: 150px" required>
+                            <option value="">Selecione</option>
+                            <option value="Brasileiro">Brasileiro</option>
+                            <option value="Naturalizado">Naturalizado</option>
+                            <option value="Estrangeiro">Estrangeiro</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        UF:
+                        <select class="form-control is-valid" name="uf" id="uf" style="width: 126px" required>
+                            <option value="">Selecione</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AM">AM</option>
+                            <option value="AP">AP</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MG">MG</option>
+                            <option value="MS">MS</option>
+                            <option value="MT">MT</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="PR">PR</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SE">SE</option>
+                            <option value="SP">SP</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="esp-form">
+                    CPF: <input type="text" class="form-control is-valid" placeholder="Insira seu CPF" name="cpf"
+                        onkeypress="$(this).mask('000.000.000-00');" value="<%=cadastro.cpf %>" required />
+                </div>
+                <div id="esp-form">
+                    Data de Nascimento: <input id="dt" style=" width: 178px" class="form-control is-valid" type="date"
+                        name="dt_nasc" value="<%=cadastro.dt_nasc %>" required />
+                </div>
+                <div id="esp-form" class="sex">
+                    Sexo:
+                    <div id="sex">
+                        <div class="sex-a">
+                            <input type="checkbox" id="sexo" name="sexo" value="M" />
+                            <label for="sexo">Masculino</label><br>
+                        </div>
+                        <div class="sex-a">
+                            <input type="checkbox" id="sexo" name="sexo" value="F" />
+                            <label for="sexo"> Feminino</label><br>
+                        </div>
+                    </div>
+                </div>
+                <div id="esp-form">
+                    Email: <input type=" text" class="form-control" placeholder="Insira seu Email" name="email"
+                        value="<%=cadastro.email %>" />
+                </div>
+            </div>
+
+            <div style="text-align: end">
+                <a href="/estudante/turma"> <button type="button"
+                        class="btn btn-outline-secondary">Cancelar</button></a>
+                <button type="submit" value="Salvar" class="btn btn-outline-primary">Enviar</button>
+                <input type="hidden" value="<%=cadastro.id %>" />
+            </div>
+        </form>
+
+
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer-cadastro">
+
+        <div class="copyright">
+            &copy; Projeto Faculdade ESAMC Santos
+        </div>
+    </footer>
+</body>
+
+
+<!-- Script -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+
+
+</html>
